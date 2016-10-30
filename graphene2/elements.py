@@ -1,6 +1,5 @@
 # encoding: utf-8
 from __future__ import unicode_literals
-from collections import OrderedDict
 import json
 import traceback
 import sys
@@ -8,7 +7,7 @@ import six
 import re
 
 
-class GrapheneObject(OrderedDict):
+class GrapheneObject(object):
     __slot__ = ('label', 'value', 'description', 'output')
 
     def __init__(self, label=None, value=None):
@@ -48,6 +47,7 @@ class GrapheneObject(OrderedDict):
 class String(GrapheneObject):
 
     def validate(self, value):
+        print 'validate '
         return str(value)
 
 

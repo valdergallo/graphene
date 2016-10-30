@@ -3,8 +3,7 @@ from __future__ import unicode_literals
 import six
 
 
-class GraphQLMetabase(object):
-
+class GraphQL(object):
     def __init__(self, *kwarg):
         self.__TYPE__ = None
 
@@ -13,12 +12,6 @@ class GraphQLMetabase(object):
 
     def to_grapheql(self):
         return "{}"
-
-
-class GraphQL(type):
-    def __new__(meta, name, bases, dict):
-        cls = type.__new__(meta, name, (GraphQLMetabase,) + bases, dict)
-        return cls
 
 
 class Node(GraphQL):
